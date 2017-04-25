@@ -1,7 +1,7 @@
 package md54eba9d6ed8867fe9c01a409150c150a5;
 
 
-public class Payment
+public class Payments
 	extends android.app.Activity
 	implements
 		mono.android.IGCUserPeer
@@ -11,16 +11,17 @@ public class Payment
 	static {
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
+			"n_onBackPressed:()V:GetOnBackPressedHandler\n" +
 			"";
-		mono.android.Runtime.register ("mXapp.Resources.Activities.Payment, mXapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", Payment.class, __md_methods);
+		mono.android.Runtime.register ("mXapp.Resources.Activities.Payments, mXapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", Payments.class, __md_methods);
 	}
 
 
-	public Payment () throws java.lang.Throwable
+	public Payments () throws java.lang.Throwable
 	{
 		super ();
-		if (getClass () == Payment.class)
-			mono.android.TypeManager.Activate ("mXapp.Resources.Activities.Payment, mXapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+		if (getClass () == Payments.class)
+			mono.android.TypeManager.Activate ("mXapp.Resources.Activities.Payments, mXapp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 
@@ -30,6 +31,14 @@ public class Payment
 	}
 
 	private native void n_onCreate (android.os.Bundle p0);
+
+
+	public void onBackPressed ()
+	{
+		n_onBackPressed ();
+	}
+
+	private native void n_onBackPressed ();
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

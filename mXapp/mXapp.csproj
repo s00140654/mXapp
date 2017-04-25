@@ -97,16 +97,17 @@
     <Compile Include="Data\MockData.cs" />
     <Compile Include="Mappers\MakeSingletonHelper.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Resources\Activities\AddEditItem.cs" />
+    <Compile Include="Resources\Activities\AmendStatus.cs" />
+    <Compile Include="Resources\Activities\EditItem.cs" />
     <Compile Include="Resources\Activities\AddMenuItems.cs" />
-    <Compile Include="Resources\Activities\Checkout.cs" />
+    <Compile Include="Resources\Activities\Payments.cs" />
     <Compile Include="Resources\Activities\ForgottenPassword.cs" />
     <Compile Include="Resources\Activities\Cart.cs" />
     <Compile Include="Resources\Activities\LogIn.cs" />
     <Compile Include="Resources\Activities\MenuEdited.cs" />
     <Compile Include="Resources\Activities\Status.cs" />
     <Compile Include="Resources\Activities\MainActivity.cs" />
-    <Compile Include="Resources\Activities\Payment.cs" />
+    <Compile Include="Resources\Activities\Checkout.cs" />
     <Compile Include="Resources\Activities\Register.cs" />
     <Compile Include="Resources\Activities\VendorsMenu.cs" />
     <Compile Include="Resources\Activities\ViewTypes.cs" />
@@ -160,6 +161,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AddMenuItems.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AmendStatus.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

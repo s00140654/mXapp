@@ -26,31 +26,31 @@ namespace mXapp.Data
 
 
     public static List<Vendor> vendors = new List<Vendor> {
-              new Vendor {ID = 1, Name = "Boneys Coal", AddressLine1 = "1 Sligo Retail Park",TownCity = "Sligo" ,VendorType = VendorType.Fuel },
-               new Vendor {ID = 1, Name = "Coal + Turf", AddressLine1 = "2 Sligo Retail Park",TownCity = "Sligo" ,VendorType = VendorType.Fuel },
-                new Vendor {ID = 1, Name = "Sligo Fuel", AddressLine1 = "11 Collooney Retail Park",TownCity = "Sligo" ,VendorType = VendorType.Fuel },
-                 new Vendor {ID = 1, Name = "Hot Stuff Fuel", AddressLine1 = "1 Ceveragh Park",TownCity = "Sligo" ,VendorType = VendorType.Fuel },
-              new Vendor {ID= 2, Name = "Beer Co", AddressLine1 = "2 Sligo Retail Park",TownCity = "Sligo" ,VendorType = VendorType.Offsales },
-              new Vendor {ID = 3, Name = "Food Co", AddressLine1 = "3 Sligo Retail Park",TownCity = "Sligo" ,VendorType = VendorType.Food },
-              new Vendor {ID = 4, Name = "Cocktail Bar", AddressLine1 = "Rockwood Parade",TownCity = "Sligo" ,VendorType = VendorType.TableService },
+              new Vendor {ID = 1, Name = "Boneys Coal", AddressLine1 = "1 Sligo Retail Park",TownCity = "Sligo" ,Type = VendorType.Fuel },
+               new Vendor {ID = 1, Name = "Coal + Turf", AddressLine1 = "2 Sligo Retail Park",TownCity = "Sligo" ,Type = VendorType.Fuel },
+                new Vendor {ID = 1, Name = "Sligo Fuel", AddressLine1 = "11 Collooney Retail Park",TownCity = "Sligo" ,Type = VendorType.Fuel },
+                 new Vendor {ID = 1, Name = "Hot Stuff Fuel", AddressLine1 = "1 Ceveragh Park",TownCity = "Sligo" ,Type = VendorType.Fuel },
+              new Vendor {ID= 2, Name = "Beer Co", AddressLine1 = "2 Sligo Retail Park",TownCity = "Sligo" ,Type = VendorType.Offsales },
+              new Vendor {ID = 3, Name = "Food Co", AddressLine1 = "3 Sligo Retail Park",TownCity = "Sligo" ,Type = VendorType.Food },
+              new Vendor {ID = 4, Name = "Cocktail Bar", AddressLine1 = "Rockwood Parade",TownCity = "Sligo" ,Type = VendorType.TableService },
             };
        
 
 
-     public static List<Product> products = new List<Product>
-            {
-                new Product {ID = 1 , productName = "Slack 40 KG", productPrice = 19.99, VendorType= VendorType.Fuel },
-                 new Product {ID = 2, productName = "Coal 40 KG", productPrice = 19.99, VendorType = VendorType.Fuel },
-                  new Product {ID = 3,productName = "Chicken Curry", productPrice = 9.99, VendorType = VendorType.Food },
-                   new Product {ID = 4, productName = "Sirloin Steak 40 KG", productPrice = 29.99, VendorType = VendorType.TableService },
-                    new Product {ID = 5,productName = "24 Cans of Carlsberg", productPrice = 29.99, VendorType = VendorType.Offsales },
-                     new Product {ID = 6, productName = "Fries", productPrice = 2.55, VendorType = VendorType.Food },
-                        new Product {ID = 7, productName = "Vodaka Screwdriver", productPrice = 7.55, VendorType = VendorType.TableService },
-                           new Product { ID = 8, productName = "6 pk of Stella Artois", productPrice = 2.55, VendorType = VendorType.Offsales },
-                           new Product {ID = 9, productName = "Onion Rings", productPrice = 2.55, VendorType =VendorType.Food },
-                           new Product {ID = 10,productName = "Martini", productPrice = 8.55, VendorType= VendorType.TableService }
+     //public static List<OrderItem> products = new List<OrderItem>
+     //       {
+     //           new OrderItem {ID = 1 , productName = "Slack 40 KG", productPrice = 19.99, VendorType= VendorType.Fuel },
+     //            new OrderItem {ID = 2, productName = "Coal 40 KG", productPrice = 19.99, VendorType = VendorType.Fuel },
+     //             new OrderItem {ID = 3,productName = "Chicken Curry", productPrice = 9.99, VendorType = VendorType.Food },
+     //              new OrderItem {ID = 4, productName = "Sirloin Steak 40 KG", productPrice = 29.99, VendorType = VendorType.TableService },
+     //               new OrderItem {ID = 5,productName = "24 Cans of Carlsberg", productPrice = 29.99, VendorType = VendorType.Offsales },
+     //                new OrderItem {ID = 6, productName = "Fries", productPrice = 2.55, VendorType = VendorType.Food },
+     //                   new OrderItem {ID = 7, productName = "Vodaka Screwdriver", productPrice = 7.55, VendorType = VendorType.TableService },
+     //                      new OrderItem { ID = 8, productName = "6 pk of Stella Artois", productPrice = 2.55, VendorType = VendorType.Offsales },
+     //                      new OrderItem {ID = 9, productName = "Onion Rings", productPrice = 2.55, VendorType =VendorType.Food },
+     //                      new OrderItem {ID = 10,productName = "Martini", productPrice = 8.55, VendorType= VendorType.TableService }
 
-            };
+     //       };
 
         //var menuItems = new List<MenuItem> {
         //    new MenuItem { VendorMenuID = 1, quantity = 1 },
@@ -75,17 +75,17 @@ namespace mXapp.Data
         //};
         //    vendorMenus.ForEach(m => context.VendorMenus.Add(m));
 
-     public static  List<CustomerOrder> orders = new List<CustomerOrder>
-            {
-                new CustomerOrder {  Status = OrderStatus.Completed, Message = "message", OrderItems =
-                new List<MenuItem> {new MenuItem {product = new Product { ID = 1, productName = "Slack 40 KG ", productPrice = 19.99 }, quantity = 1, VendorMenuID = 1 } } },
-                new CustomerOrder { Status = OrderStatus.InTransit, OrderItems =
-               new List<MenuItem> {new MenuItem {product = new Product { ID = 3, productName = "Chicked curry ", productPrice = 9.99 }, quantity = 1, VendorMenuID = 3 } } },
-                new CustomerOrder { Status = OrderStatus.InTransit, OrderItems =
-              new List<MenuItem> {new MenuItem {product = new Product { ID = 1, productName = "Martini ", productPrice = 9.99, }, quantity = 1, VendorMenuID = 4 } } },
-                new CustomerOrder { Status = OrderStatus.Accepted, OrderItems =
-              new List<MenuItem> {new MenuItem {product = new Product { ID = 1, productName = "6 Pk Guinness ", productPrice = 19.99,  }, quantity = 1, VendorMenuID = 2 } } },
-            };
+     //public static  List<CustomerOrder> orders = new List<CustomerOrder>
+     //       {
+     //           new CustomerOrder {  Status = OrderStatus.Completed, Message = "message", OrderItems =
+     //           new List<MenuItem> {new MenuItem {product = new OrderItem { ID = 1, productName = "Slack 40 KG ", productPrice = 19.99 }, quantity = 1, VendorMenuID = 1 } } },
+     //           new CustomerOrder { Status = OrderStatus.InTransit, OrderItems =
+     //          new List<MenuItem> {new MenuItem {product = new OrderItem { ID = 3, productName = "Chicked curry ", productPrice = 9.99 }, quantity = 1, VendorMenuID = 3 } } },
+     //           new CustomerOrder { Status = OrderStatus.InTransit, OrderItems =
+     //         new List<MenuItem> {new MenuItem {product = new OrderItem { ID = 1, productName = "Martini ", productPrice = 9.99, }, quantity = 1, VendorMenuID = 4 } } },
+     //           new CustomerOrder { Status = OrderStatus.Accepted, OrderItems =
+     //         new List<MenuItem> {new MenuItem {product = new OrderItem { ID = 1, productName = "6 Pk Guinness ", productPrice = 19.99,  }, quantity = 1, VendorMenuID = 2 } } },
+     //       };
         
 
     }

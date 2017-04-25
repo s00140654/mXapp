@@ -85,17 +85,36 @@ namespace mXapp.Rest
             return result;
         }
 
-       
-
-        
-        public string GetById(string ur)
+        public string GetAll(string uri)
         {
-            url = url + ur;
+          //  url = "http://192.168.1.11:52123/api/";
+            url = url + uri;
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
             request.ContentType = "application/json";
             request.Method = "Get";
             string result;
-         
+
+            //GetByName http://192.168.1.11:52123/api/vendors/PutByName/
+
+            using (var resp = request.GetResponse())
+            {
+                result = new StreamReader(resp.GetResponseStream()).ReadToEnd();
+                //  result = JObject.Parse(results);
+            }
+
+            return result;
+        }
+
+
+        public string GetById(string uri)
+        {
+            url = "http://192.168.1.11:52123/api/";
+            url = url + uri;
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
+            request.ContentType = "application/json";
+            request.Method = "Get";
+            string result;
+            
             //GetByName http://192.168.1.11:52123/api/vendors/PutByName/
             
             using (var resp = request.GetResponse())
@@ -112,13 +131,14 @@ namespace mXapp.Rest
             throw new NotImplementedException();
         }
 
-         public Product LogIn(LoginDTO dto) {
+        // public OrderItem LogIn(LoginDTO dto) {
             
-            return null;
+        //    return null;
+        //}
+
+        public Vendor GetAll()
+        {
+            throw new NotImplementedException();
         }
-
-
-
-        
     }
 }

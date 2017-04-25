@@ -35,6 +35,8 @@ C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\checkout.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\editmenu.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\menuedited.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\addedititem.xml
+C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\addmenuitems.xml
+C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\amendstatus.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\main.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\values\strings.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\drawable\icon.png
@@ -78,6 +80,5 @@ C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\android\assets\System.ServiceModel.
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\mXapp.csprojResolveAssemblyReference.cache
-C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\res\layout\addmenuitems.xml
 C:\Users\S0014\Desktop\mXapp\mXapp\obj\Debug\mXapp.dll.mdb
 C:\Users\S0014\Desktop\mXapp\mXapp\bin\Debug\mXapp.dll.mdb

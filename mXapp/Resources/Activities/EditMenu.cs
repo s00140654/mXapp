@@ -29,8 +29,7 @@ namespace mXapp.Resources.layout
         SingletonSession session = SingletonSession.Instance;
         private IRestService<Vendor> irs = new RestSevice();
         protected override void OnCreate(Bundle savedInstanceState)
-        {   
-            
+        {            
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.EditMenu);
             var button = FindViewById<Button>(Resource.Id.button1);
@@ -38,8 +37,7 @@ namespace mXapp.Resources.layout
             uri = "/Vendors/" + session.vendorID;
             string v = irs.GetById(uri);
             //   menu.VendorID = session.vendorID;
-            
-
+           
            List<Product> products = new List<Product>();
 
             Vendor vendor = JsonConvert.DeserializeObject<Vendor>(v);
@@ -60,36 +58,22 @@ namespace mXapp.Resources.layout
             listView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs position)
             {
                 string selected = (string)(listView.GetItemAtPosition(position.Position));
-                Product selectedProduct = new Product();
-                
+                Product selectedProduct = new Product();            
                 int idx = selected.IndexOf(" :");
-
                 selected = selected.Substring(0, idx).Trim();
-
 
                 foreach (Product se in products)
                 {
                     if (se.productName == selected) selectedProduct = se;
                 }
-                Intent intent = new Intent(this, typeof(AddEditItem));
+                Intent intent = new Intent(this, typeof(EditItem));
                 intent.PutExtra("selected", JsonConvert.SerializeObject(selectedProduct));
 
                 StartActivity(intent);
-
-
-            };
-
-
-
-            
+            };       
             button.Click += (sender, e) => {
                 StartActivity(typeof(MainActivity));
-            };
-            //tv.setFocusable(true);
-            //tv.setEnabled(true);
-            //tv.setClickable(true);
-            //tv.setFocusableInTouchMode(true);
-
+            };         
         }
     }
 }
@@ -103,3 +87,7 @@ namespace mXapp.Resources.layout
 //     menu = JsonConvert.DeserializeObject<VendorMenu>(v);
 
 //dynamic vv = JsonConvert.DeserializeObject<List<MenuItem>>(v);
+//tv.setFocusable(true);
+//tv.setEnabled(true);
+//tv.setClickable(true);
+//tv.setFocusableInTouchMode(true);

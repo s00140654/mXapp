@@ -15,7 +15,7 @@ namespace mXapp.Helpers
 {
     class MakeSingletonHelper
     {
-        public Vendor MakeSingleton(Vendor vendor) {
+        public Vendor MakeSingletonVendor(Vendor vendor) {
             Session S = vendor.Session;
            
             SingletonSession singletonSession = SingletonSession.Instance;
@@ -36,7 +36,7 @@ namespace mXapp.Helpers
             singletonVendor.Name = vendor.Name;
             singletonVendor.Password = vendor.Password;
             singletonVendor.TownCity = vendor.TownCity;
-            singletonVendor.VendorType = vendor.VendorType;
+            singletonVendor.VendorType = vendor.Type;
 
             SingletonMenu sm = SingletonMenu.Instance;
             sm.ID = vendor.Menu.ID;
@@ -55,8 +55,21 @@ namespace mXapp.Helpers
             singletonVendor.Menu = sm;
 
             return vendor;
-
-
         }
+
+        public CustomerOrder makeSingletonOrder(CustomerOrder order) {
+            SingletonOrder O = SingletonOrder.Instance;
+            O.CustomerDetails = order.CustomerDetails;
+            O.DateTime = order.DateTime;
+            O.ID = order.ID;
+            O.Message = order.Message;
+            O.Status = order.Status;
+            O.Total = order.Total;
+            O.VendorId = order.VendorId;
+            O.Products = order.Products;
+           // O.OrderItems = order.OrderItems;
+
+            return order;
+        } 
     }
 }

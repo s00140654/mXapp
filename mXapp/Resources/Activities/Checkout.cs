@@ -9,45 +9,87 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using mXapp.Models;
+using Newtonsoft.Json;
+using mXapp.Helpers;
 
 namespace mXapp.Resources.Activities
 {
     [Activity(Label = "Checkout")]
     public class Checkout : Activity
     {
+        SingletonOrder so = SingletonOrder.Instance;
+      
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Checkout);
-            var textFName = FindViewById<EditText>(Resource.Id.textFName);
-            var textLName = FindViewById<EditText>(Resource.Id.textLName);
-            var textExp = FindViewById<EditText>(Resource.Id.textExpiry);
-            var textCVV = FindViewById<EditText>(Resource.Id.textCVV);
-            var textAdd1 = FindViewById<EditText>(Resource.Id.textAdd1);
-            var textAdd2 = FindViewById<EditText>(Resource.Id.textAdd2);
-            var textAdd3 = FindViewById<EditText>(Resource.Id.textAdd3);
-            var buyButton = FindViewById<Button>(Resource.Id.buttonBuy);
-            var message = FindViewById<TextView>(Resource.Id.textMessage);
-            var textCard = FindViewById<TextView>(Resource.Id.textCardnumber);
-            // Create your application here
+            SetContentView(Resource.Layout.Payment);
+           
+            CustomerOrder order = new CustomerOrder();
+            var listView = FindViewById<ListView>(Resource.Id.listView1);
+            var textTotal = FindViewById<TextView>(Resource.Id.textToal);
+            var paymentButton = FindViewById<Button>(Resource.Id.buttonPayment);
+          //  order = JsonConvert.DeserializeObject<CustomerOrder>(Intent.GetStringExtra("selected") ?? "Data not available");
+            
 
-            buyButton.Click += (sender, e) => {
-                message.Visibility = ViewStates.Visible;
-                message.Text = "Your payment has been accepted and your order has been accepted";
-                textFName.Visibility = ViewStates.Invisible;
-                textLName.Visibility = ViewStates.Invisible;
-                textExp.Visibility = ViewStates.Invisible;
-                textCVV.Visibility = ViewStates.Invisible;
-                textAdd1.Visibility = ViewStates.Invisible;
-                textAdd2.Visibility = ViewStates.Invisible;
-                textAdd3.Visibility = ViewStates.Invisible;
-                textCard.Visibility = ViewStates.Invisible;
-                buyButton.Visibility = ViewStates.Invisible;
+          //  var orderItems = so.OrderItems;
+            var data = new string[so.Products.Count()];
+            for (int i = 0; i <= data.Count() - 1; i++)
+            {
+                data[i] = so.Products[i].productName + " : " + "€" +
+                    so.Products[i].productPrice+ " - ";
+            }
+            so.Total = 0;
+            foreach (Product mi in so.Products) {
+
+                so.Total = so.Total + mi.productPrice;
+            }
+
+            textTotal.Text ="Total Cost: €"+ so.Total.ToString();
+
+            listView.Adapter = new ArrayAdapter(this, Resource.Xml.listViewTemplate, data);
+            listView.FastScrollEnabled = true;
+
+            listView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs position)
+            {
+                String selected = (String)(listView.GetItemAtPosition(position.Position));
+                int idx = selected.IndexOf(" :");
+          
+                selected = selected.Substring(0, idx).Trim();
+                MenuItem selectedProduct = new MenuItem();
+
+                //foreach (MenuItem mi in order.OrderItems)
+                //{
+                //    if (mi.product.productName == selected)
+                      
+
+                //}
+
+                for (int i = 0; i <= so.Products.Count() - 1; i++) {
+                    if (so.Products[i].productName == selected) {
+                        so.Products.Remove(so.Products[i]);
+                        StartActivity(typeof(Checkout));
+                    }
+                }
 
 
-
+               // totalText.Text = Convert.ToString(calcbasket());
             };
 
+            paymentButton.Click+= (sender, e) =>
+            {
+                StartActivity(typeof(Payments));
+            };
+
+
+            //order.orderItems[0].
+
+            //  foreach(Product p in object.)
+        }
+
+        public override void OnBackPressed()
+        {
+            StartActivity(typeof(VendorsMenu));
         }
     }
 }

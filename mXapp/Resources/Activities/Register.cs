@@ -106,7 +106,7 @@ namespace mXapp.Resources.Activities
     {
         Spinner spinner = (Spinner)sender;
         string s = spinner.GetItemAtPosition(e.Position).ToString();
-        vendor.VendorType = (VendorType)Enum.Parse(typeof(VendorType), s);
+        vendor.Type = (VendorType)Enum.Parse(typeof(VendorType), s);
     }
 
 

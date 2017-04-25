@@ -20,7 +20,8 @@ namespace mXapp.Rest
         Vendor SaveVendorRegistrationAsync(Vendor vendor);
         Vendor LogIn(T t);
         string Invoke(string json, string uri, string verb);
-        string GetById(string  ur);
+        string GetById(string  uri);
+        T GetAll();
 
     }
 }

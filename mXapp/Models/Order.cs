@@ -11,8 +11,7 @@ using Android.Views;
 using Android.Widget;
 using mXapp.Resources.Activities;
 
-namespace mXapp.Models
-{
+namespace mXapp.Models { 
     public static class OrderBool
     {
         public static bool isLoggedIn;
@@ -21,7 +20,7 @@ namespace mXapp.Models
     }
     public enum OrderStatus
     {
-        Accepted, InTransit, Completed, Unsubmitted
+        Submitted,  Accepted, InTransit, Completed
     }
 
     public enum VendorType
@@ -32,7 +31,9 @@ namespace mXapp.Models
 
     public class CustomerOrder
     {
-        public int ID { get; set; } //Guid may be used instead of string for all ids.
+        public int ID { get; set; } //Guid should be used instead of ints for all ids.
+
+        public int VendorId { get; set; }
 
         public DateTime? DateTime { get; set; }
 
@@ -42,14 +43,77 @@ namespace mXapp.Models
 
         public OrderStatus Status { get; set; }
 
-        public Product Vendor { get; set; }
+       // public Vendor { get; set; }
 
         public CustomerDetail CustomerDetails { get; set; }
 
-        public IList<MenuItem> OrderItems { get; set; }
+       // public IList<MenuItem> OrderItems 
 
-       
+        public IList<Product> Products { get; set; }
+
     }
+    
+
+    public class CustomerDetail
+    {
+        public int ID { get; set; }
+
+        public int VendorId { get; set; }
+
+        //  public int CustomerOrderID { get; set; }
+
+        public string customerFirstName { get; set; }
+
+        public string customerSecondName { get; set; }
+
+        public string customerAdressLine1 { get; set; }
+
+        public string customerAdressLine2 { get; set; }
+
+        public string customerTown { get; set; }
+
+        public string customerCounty { get; set; }
+
+        public string eircode { get; set; }
+
+        public string customerEmail { get; set; }
+
+        public string customerPhone { get; set; }
+
+        public IList<CustomerOrder> orders { get; set; }
+
+    }
+    public class Product
+    {
+        public int ID { get; set; }
+
+        // public int MenuItemID { get; set; }
+
+        public int MenuId { get; set; }
+
+        public string productName { get; set; }
+
+        public double productPrice { get; set; }
+
+        public Product() { }
+    }
+
+    //public class OrderItem
+    //{
+    //    public int ID { get; set; }
+
+    //    // public int MenuItemID { get; set; }
+
+    //    public int MenuId { get; set; }
+
+    //    public string productName { get; set; }
+
+    //    public double productPrice { get; set; }
+
+    //    public VendorType VendorType;
+
+    //    public OrderItem() { }
+    //}
 
     public class Vendor
     {
@@ -77,7 +141,7 @@ namespace mXapp.Models
         public string Phone { get; set; }
 
 
-        public VendorType VendorType { get; set; }
+        public VendorType Type { get; set; }
 
         public VendorMenu Menu { get; set; }
 
@@ -112,47 +176,8 @@ namespace mXapp.Models
         public MenuItem() { }
     }
 
-    public class Product
-    {
-        public int ID { get; set; }
-
-        // public int MenuItemID { get; set; }
-
-        public int MenuId { get; set; }
-
-        public string productName { get; set; }
-
-        public double productPrice { get; set; }
-
-        public VendorType VendorType;
-
-        public Product() { }
-    }
-    public class CustomerDetail
-    {
-        public int ID { get; set; }
-
-        public int CustomerOrderID { get; set; }
-
-        public string customerFirstName { get; set; }
-
-        public string customerSecondName { get; set; }
-
-        public string customerAdressLine1 { get; set; }
-
-        public string customerAdressLine2 { get; set; }
-
-        public string customerTown { get; set; }
-
-        public string customerCounty { get; set; }
-
-        public string eircode { get; set; }
-
-        public string customerEmail { get; set; }
-
-        public string customerPhone { get; set; }
-
-    }
+   
+  
 
     
     public sealed class SingletonSession
@@ -304,7 +329,7 @@ namespace mXapp.Models
 
         //   public ICollection<MenuItem> menuItems { get; set; }
         public ICollection<Product> Products { get; set; }
-        
+       
         SingletonMenu()
         {
         }
@@ -363,6 +388,58 @@ namespace mXapp.Models
             }
         }
     }
+
+
+    public sealed class SingletonOrder
+    {
+        private static SingletonOrder instance = null;
+        private static readonly object padlock = new object();
+
+        public int ID { get; set; } //Guid should be used instead of ints for all ids.
+
+        public int VendorId { get; set; }
+
+        public DateTime? DateTime { get; set; }
+
+        public double Total { get; set; }
+
+        public string Message { get; set; }
+
+        public OrderStatus Status { get; set; }
+
+        // public Vendor { get; set; }
+
+        public CustomerDetail CustomerDetails { get; set; }
+
+        // public IList<MenuItem> OrderItems 
+
+        public IList<Product> Products { get; set; }
+        //public IList<MenuItem> OrderItems { get; set; }
+
+
+        SingletonOrder()
+        {
+        }
+
+
+        public static SingletonOrder Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new SingletonOrder();
+                    }
+                    return instance;
+                }
+            }
+        }
+    }
+
+
+
     //public static class LogInDTO
     //{
     //    public static string PassWord { get; set; }

@@ -17,7 +17,7 @@ using mXapp.Resources.layout;
 namespace mXapp.Resources.Activities
 {
     [Activity(Label = "AddEditItem")]
-    public class AddEditItem : Activity
+    public class EditItem : Activity
     {
         private IRestService<Vendor> irs = new RestSevice();
         SingletonVendor sv = SingletonVendor.Instance;

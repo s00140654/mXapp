@@ -15,7 +15,7 @@ using mXapp.Rest;
 
 namespace mXapp.Resources.Activities
 {
-    [Activity(Label = "AddMenuItems")]
+    [Activity(Label = "Add Menu Items")]
     public class AddMenuItems : Activity
     {
         string tempPrice;
@@ -32,19 +32,28 @@ namespace mXapp.Resources.Activities
 
             EditText enterProductName = new EditText(this);
             enterProductName.Text = "Enter Product Name";
+            enterProductName.TextSize = 25;
             
             
             var enterProductPrice = new EditText(this);
             enterProductPrice.Text = "Enter Product Price";
+            enterProductPrice.TextSize = 25;
+
+            var message = new TextView(this);
+            message.TextSize = 15;
+
+            
 
             var addButton = new Button(this);
             addButton.Text = "Add to Menu";
 
-            var reviewButton = new Button(this);
-            reviewButton.Text = "Add to list";
 
-            layout.AddView(enterProductPrice);
+            var reviewButton = new Button(this);
+            reviewButton.Text = "Edit Existing Items";
+
             layout.AddView(enterProductName);
+            layout.AddView(enterProductPrice);
+            layout.AddView(message);
             layout.AddView(addButton);
             SetContentView(layout);
 
@@ -54,9 +63,6 @@ namespace mXapp.Resources.Activities
             };
             enterProductPrice.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
                 tempPrice = e.Text.ToString();
-                
-               // 
-
             };
 
            
@@ -71,9 +77,19 @@ namespace mXapp.Resources.Activities
                 if (product != null)
                 {
                     product = JsonConvert.DeserializeObject<Product>(p);
-                    update(product);
+                    update(product);           
+                    message.Text = (product.productName + ": was added sucessfully, add another or edit existing");
+                    enterProductName.Text = "Enter Product Name";
+                    enterProductPrice.Text = "Enter Product Price";
+                    layout.AddView(reviewButton);
+
                 }
 
+            };
+
+
+            reviewButton.Click += (sender, e) => {
+                StartActivity(typeof(layout.EditMenu));
             };
             //var button = FindViewById<Button>(Resource.Id.button1);
             //button.Click += (sender, e) => {
@@ -87,6 +103,8 @@ namespace mXapp.Resources.Activities
         {   
 
             sv.Menu.Products.Add(product);
+           
+
         }
     }
 }

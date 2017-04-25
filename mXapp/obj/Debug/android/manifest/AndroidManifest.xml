@@ -12,15 +12,16 @@
       </intent-filter>
     </activity>
     <activity android:label="Edit_Menu" android:name="md5b4a8a30780c1187ec3ee15cae75bdf53.EditMenu" />
-    <activity android:label="AddEditItem" android:name="md54eba9d6ed8867fe9c01a409150c150a5.AddEditItem" />
-    <activity android:label="AddMenuItems" android:name="md54eba9d6ed8867fe9c01a409150c150a5.AddMenuItems" />
-    <activity android:label="Checkout" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Checkout" />
+    <activity android:label="AmendStatus" android:name="md54eba9d6ed8867fe9c01a409150c150a5.AmendStatus" />
+    <activity android:label="AddEditItem" android:name="md54eba9d6ed8867fe9c01a409150c150a5.EditItem" />
+    <activity android:label="Add Menu Items" android:name="md54eba9d6ed8867fe9c01a409150c150a5.AddMenuItems" />
+    <activity android:label="Payments" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Payments" />
     <activity android:label="Forgotten Password" android:name="md54eba9d6ed8867fe9c01a409150c150a5.ForgottenPassword" />
     <activity android:label="Cart" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Cart" />
     <activity android:label="LogIn" android:name="md54eba9d6ed8867fe9c01a409150c150a5.LogIn" />
     <activity android:label="MenuEdited" android:name="md54eba9d6ed8867fe9c01a409150c150a5.MenuEdited" />
     <activity android:label="Order Status" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Status" />
-    <activity android:label="Checkout" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Payment" />
+    <activity android:label="Checkout" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Checkout" />
     <activity android:label="RegisterAsVendor" android:name="md54eba9d6ed8867fe9c01a409150c150a5.Register" />
     <activity android:label="Price List" android:name="md54eba9d6ed8867fe9c01a409150c150a5.VendorsMenu" />
     <activity android:label="ViewTypes" android:name="md54eba9d6ed8867fe9c01a409150c150a5.ViewTypes" />
